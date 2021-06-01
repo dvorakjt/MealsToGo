@@ -1,23 +1,26 @@
 import React from 'react';
-import { View, SafeAreaView, Text, StyleSheet, Platform } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+
+import { RestaurantFinder } from './src/features/RestaurantFinder';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container(Platform)}>
-      <View>
-        <Text>here we will build a search bar</Text>
-      </View>
-      <View>
-        <Text>here we will build search results</Text>
-      </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle={'default'}
+        showHideTransition={'slide'}
+        hidden={false}
+      />
+      <RestaurantFinder />
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: ({ OS }) => ({
+  container: {
     flex: 1,
-    marginTop: OS === 'android' ? 10 : 0,
-    backgroundColor: OS === 'android' ? 'blue' : 'red'
-  })
+    marginTop: StatusBar.currentHeight
+  }
 });
