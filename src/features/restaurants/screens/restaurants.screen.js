@@ -3,21 +3,21 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import {Searchbar} from 'react-native-paper';
 
-export const RestaurantFinder = () => {
+export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
 
   return (
     <>
-      <View style={styles.searchBarView}>
+      <View style={styles.search}>
         <Searchbar
-          placeholder="Find a restarant..."
+          placeholder="Find a restaurant..."
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
       </View>
-      <View style={styles.searchResults}>
+      <View style={styles.list}>
         <Text>list</Text>
       </View>
     </>
@@ -25,10 +25,10 @@ export const RestaurantFinder = () => {
 };
 
 const styles = StyleSheet.create({
-  searchBarView: {
+  search: {
     padding: 16,
   },
-  searchResults: {
+  list: {
     padding: 16,
     backgroundColor: 'blue',
     flex: 1,

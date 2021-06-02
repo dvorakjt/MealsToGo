@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 
-import {RestaurantFinder} from './src/features/RestaurantFinder';
+import {RestaurantsScreen} from './src/features/restaurants/screens/restaurants.screen';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       <StatusBar
         animated={true}
         backgroundColor="#61dafb"
@@ -13,8 +13,10 @@ export default function App() {
         showHideTransition={'slide'}
         hidden={false}
       />
-      <RestaurantFinder />
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <RestaurantsScreen />
+      </SafeAreaView>
+    </>
   );
 }
 
