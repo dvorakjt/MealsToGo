@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import {Searchbar} from 'react-native-paper';
+
 export const RestaurantFinder = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
   return (
     <>
-      <View style={styles.searchBar}>
-        <Text>search</Text>
+      <View style={styles.searchBarView}>
+        <Searchbar
+          placeholder="Find a restarant..."
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
       </View>
       <View style={styles.searchResults}>
         <Text>list</Text>
@@ -15,9 +25,8 @@ export const RestaurantFinder = () => {
 };
 
 const styles = StyleSheet.create({
-  searchBar: {
+  searchBarView: {
     padding: 16,
-    backgroundColor: 'green',
   },
   searchResults: {
     padding: 16,
