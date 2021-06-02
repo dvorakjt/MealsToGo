@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
+import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 
-import { RestaurantFinder } from './src/features/RestaurantFinder';
+import {RestaurantFinder} from './src/features/RestaurantFinder';
 
 export default function App() {
   return (
@@ -15,12 +15,12 @@ export default function App() {
       />
       <RestaurantFinder />
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight
-  }
+    marginTop: StatusBar.currentHeight,
+  },
 });
