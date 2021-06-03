@@ -3,6 +3,8 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import {Searchbar} from 'react-native-paper';
 
+import {RestaurantInfo} from '../components/restaurant-info.component';
+
 export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -18,7 +20,7 @@ export const RestaurantsScreen = () => {
         />
       </View>
       <View style={styles.list}>
-        <Text>list</Text>
+        <RestaurantInfo />
       </View>
     </>
   );
