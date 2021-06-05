@@ -1,9 +1,18 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-
+import styled from 'styled-components/native';
 import {Searchbar} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
+
+const RestaurantSearchView = styled.View`
+  padding: 16px;
+`;
+
+const RestaurantListView = styled.View`
+  padding: 16px;
+  background-color: blue;
+  flex: 1;
+`;
 
 export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,27 +21,16 @@ export const RestaurantsScreen = () => {
 
   return (
     <>
-      <View style={styles.search}>
+      <RestaurantSearchView>
         <Searchbar
           placeholder="Find a restaurant..."
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
-      </View>
-      <View style={styles.list}>
+      </RestaurantSearchView>
+      <RestaurantListView>
         <RestaurantInfoCard />
-      </View>
+      </RestaurantListView>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  search: {
-    padding: 16,
-  },
-  list: {
-    padding: 16,
-    backgroundColor: 'blue',
-    flex: 1,
-  },
-});
