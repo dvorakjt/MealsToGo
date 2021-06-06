@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
+import {StatusBar} from 'react-native';
 import styled from 'styled-components/native';
 import {Searchbar} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
+
+const RestaurantScreenView = styled.SafeAreaView`
+  flex: 1;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`}
+`;
 
 const RestaurantSearchView = styled.View`
   padding: 16px;
@@ -20,7 +26,7 @@ export const RestaurantsScreen = () => {
   const onChangeSearch = query => setSearchQuery(query);
 
   return (
-    <>
+    <RestaurantScreenView>
       <RestaurantSearchView>
         <Searchbar
           placeholder="Find a restaurant..."
@@ -31,6 +37,6 @@ export const RestaurantsScreen = () => {
       <RestaurantListView>
         <RestaurantInfoCard />
       </RestaurantListView>
-    </>
+    </RestaurantScreenView>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 
 import {RestaurantsScreen} from './src/features/restaurants/screens/restaurants.screen';
 
@@ -13,16 +13,7 @@ export default function App() {
         showHideTransition={'slide'}
         hidden={false}
       />
-      <SafeAreaView style={styles.container}>
-        <RestaurantsScreen />
-      </SafeAreaView>
+      <RestaurantsScreen />
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight,
-  },
-});
