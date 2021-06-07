@@ -7,16 +7,16 @@ import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
 
 const RestaurantScreenView = styled.SafeAreaView`
   flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`}
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`};
+  background-color: ${({theme}) => theme.colors.bg.secondary};
 `;
 
 const RestaurantSearchView = styled.View`
-  padding: 16px;
+  padding: ${({theme}) => theme.space[3]};
 `;
 
 const RestaurantListView = styled.View`
-  padding: 16px;
-  background-color: blue;
+  padding: ${({theme}) => theme.space[3]};
   flex: 1;
 `;
 

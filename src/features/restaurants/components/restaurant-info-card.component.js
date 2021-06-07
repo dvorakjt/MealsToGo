@@ -3,17 +3,17 @@ import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 
 const RestaurantCard = styled(Card)`
-  background-color: white;
+  background-color: ${({theme}) => theme.colors.bg.primary};
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
-  padding: 20px;
-  background-color: white;
+  padding: ${({theme}) => theme.space[3]};
+  background-color: ${({theme}) => theme.colors.bg.primary};
 `;
 
 const Title = styled.Text`
-  padding: 16px;
-  color: red;
+  padding: ${({theme}) => theme.space[3]};
+  color: ${({theme}) => theme.colors.ui.primary};
 `;
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
