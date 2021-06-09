@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 
 const RestaurantCard = styled(Card)`
-  background-color: ${({theme}) => theme.colors.bg.primary};
+  background-color: ${({theme}) =>
+    theme.colors.bg.primary}; //destructure props to grab theme
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
@@ -11,10 +12,20 @@ const RestaurantCardCover = styled(Card.Cover)`
   background-color: ${({theme}) => theme.colors.bg.primary};
 `;
 
-const Title = styled.Text`
+const Info = styled.View`
   padding: ${({theme}) => theme.space[3]};
+`;
+
+const Title = styled.Text`
   color: ${({theme}) => theme.colors.ui.primary};
-  font-family: 'Oswald-Regular';
+  font-family: ${({theme}) => theme.fonts.heading};
+  font-size: ${({theme}) => theme.fontSizes.body};
+`;
+
+const Address = styled.Text`
+  color: ${({theme}) => theme.colors.ui.primary};
+  font-family: ${({theme}) => theme.fonts.body};
+  font-size: ${({theme}) => theme.fontSizes.caption};
 `;
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
@@ -33,7 +44,10 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
   return (
     <RestaurantCard title={name}>
       <RestaurantCardCover source={{uri: photos[0]}} />
-      <Title>{name}</Title>
+      <Info>
+        <Title>{name}</Title>
+        <Address>{address}</Address>
+      </Info>
     </RestaurantCard>
   );
 };
