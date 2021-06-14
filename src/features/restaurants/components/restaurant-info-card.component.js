@@ -7,6 +7,8 @@ import star from '../../../../assets/star';
 
 const Rating = styled.View`
   flex-direction: row;
+  padding-top: ${({theme}) => theme.space[1]};
+  padding-bottom: ${({theme}) => theme.space[1]};
 `;
 
 const RestaurantCard = styled(Card)`

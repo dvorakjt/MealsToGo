@@ -5,9 +5,10 @@ import {Searchbar} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
 
+/*StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`*/
+
 const RestaurantScreenView = styled.SafeAreaView`
   flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`};
   background-color: ${({theme}) => theme.colors.bg.secondary};
 `;
 
