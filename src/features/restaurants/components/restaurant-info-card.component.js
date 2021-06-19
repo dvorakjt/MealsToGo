@@ -1,9 +1,16 @@
 import React from 'react';
+import {Text} from 'react-native';
 import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 import {SvgXml} from 'react-native-svg';
 
 import star from '../../../../assets/star';
+import open from '../../../../assets/open';
+
+const Section = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 const Rating = styled.View`
   flex-direction: row;
@@ -45,9 +52,9 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
       'https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2019/10/Dan-Dan-Noodles-11.jpg?fit=2000%2C1333&ssl=1',
     ],
     address = '100 Some Random Street, Philadelphia, PA',
-    isOpenNow = true,
+    isOpenNow = false,
     rating = 5,
-    isClosedTemporarily = false,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.round(rating)));
@@ -57,12 +64,24 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
       <RestaurantCardCover source={{uri: photos[0]}} />
       <Info>
         <Title>{name}</Title>
-        <Rating>
-          {ratingArray.map((el, index) => (
-            <SvgXml xml={star} width={20} height={20} key={String(index)} />
-          ))}
-        </Rating>
-        <Address>{address}</Address>
+        <Section>
+          <Rating>
+            {ratingArray.map((el, index) => (
+              <SvgXml xml={star} width={20} height={20} key={String(index)} />
+            ))}
+          </Rating>
+          {isOpenNow ? (
+            <SvgXml xml={open} width={20} height={20} />
+          ) : isClosedTemporarily ? (
+            <Text variant="label" style={{color: 'red'}}>
+              CLOSED TEMPORARILY
+            </Text>
+          ) : null}
+        </Section>
+        <Section>
+          <Address>{address}</Address>
+          <Text>Type Icon</Text>
+        </Section>
       </Info>
     </RestaurantCard>
   );
