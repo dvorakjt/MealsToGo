@@ -4,6 +4,8 @@ import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 import {SvgXml} from 'react-native-svg';
 
+import {Spacer} from '../../../components/spacers/spacer.component';
+
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 
@@ -64,20 +66,22 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
       <RestaurantCardCover source={{uri: photos[0]}} />
       <Info>
         <Title>{name}</Title>
-        <Section>
-          <Rating>
-            {ratingArray.map((el, index) => (
-              <SvgXml xml={star} width={20} height={20} key={String(index)} />
-            ))}
-          </Rating>
-          {isOpenNow ? (
-            <SvgXml xml={open} width={20} height={20} />
-          ) : isClosedTemporarily ? (
-            <Text variant="label" style={{color: 'red'}}>
-              CLOSED TEMPORARILY
-            </Text>
-          ) : null}
-        </Section>
+        <Spacer position="top" size="large">
+          <Section>
+            <Rating>
+              {ratingArray.map((el, index) => (
+                <SvgXml xml={star} width={20} height={20} key={String(index)} />
+              ))}
+            </Rating>
+            {isOpenNow ? (
+              <SvgXml xml={open} width={20} height={20} />
+            ) : isClosedTemporarily ? (
+              <Text variant="label" style={{color: 'red'}}>
+                CLOSED TEMPORARILY
+              </Text>
+            ) : null}
+          </Section>
+        </Spacer>
         <Section>
           <Address>{address}</Address>
           <Text>Type Icon</Text>
