@@ -1,50 +1,19 @@
 import React from 'react';
-import {Text} from 'react-native';
-import styled from 'styled-components/native';
-import {Card} from 'react-native-paper';
 import {SvgXml} from 'react-native-svg';
 
 import {Spacer} from '../../../components/spacers/spacer.component';
+import {Text} from '../../../components/typography/text.component';
+import {
+  Section,
+  Rating,
+  RestaurantCard,
+  RestaurantCardCover,
+  Info,
+  Address,
+} from './restaurant-info-card.styles';
 
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
-
-const Section = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${({theme}) => theme.space[1]};
-  padding-bottom: ${({theme}) => theme.space[1]};
-`;
-
-const RestaurantCard = styled(Card)`
-  background-color: ${({theme}) =>
-    theme.colors.bg.primary}; //destructure props to grab theme
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${({theme}) => theme.space[3]};
-  background-color: ${({theme}) => theme.colors.bg.primary};
-`;
-
-const Info = styled.View`
-  padding: ${({theme}) => theme.space[3]};
-`;
-
-const Title = styled.Text`
-  color: ${({theme}) => theme.colors.ui.primary};
-  font-family: ${({theme}) => theme.fonts.heading};
-  font-size: ${({theme}) => theme.fontSizes.body};
-`;
-
-const Address = styled.Text`
-  color: ${({theme}) => theme.colors.ui.primary};
-  font-family: ${({theme}) => theme.fonts.body};
-  font-size: ${({theme}) => theme.fontSizes.caption};
-`;
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
   const {
@@ -65,7 +34,7 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
     <RestaurantCard title={name}>
       <RestaurantCardCover source={{uri: photos[0]}} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Spacer position="top" size="large">
           <Section>
             <Rating>
@@ -76,9 +45,7 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
             {isOpenNow ? (
               <SvgXml xml={open} width={20} height={20} />
             ) : isClosedTemporarily ? (
-              <Text variant="label" style={{color: 'red'}}>
-                CLOSED TEMPORARILY
-              </Text>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             ) : null}
           </Section>
         </Spacer>
