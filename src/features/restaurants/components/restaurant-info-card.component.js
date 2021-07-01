@@ -4,11 +4,12 @@ import {SvgXml} from 'react-native-svg';
 import {Spacer} from '../../../components/spacers/spacer.component';
 import {Text} from '../../../components/typography/text.component';
 import {
-  Section,
-  Rating,
   RestaurantCard,
   RestaurantCardCover,
   Info,
+  Section,
+  Rating,
+  Icon,
   Address,
 } from './restaurant-info-card.styles';
 
@@ -18,7 +19,7 @@ import open from '../../../../assets/open';
 export const RestaurantInfoCard = ({restaurant = {}}) => {
   const {
     name = 'Some Restaurant',
-    icon,
+    icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
     photos = [
       'https://i2.wp.com/seonkyounglongest.com/wp-content/uploads/2019/10/Dan-Dan-Noodles-11.jpg?fit=2000%2C1333&ssl=1',
     ],
@@ -51,7 +52,7 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
         </Spacer>
         <Section>
           <Address>{address}</Address>
-          <Text>Type Icon</Text>
+          <Icon source={{ uri: icon}} />
         </Section>
       </Info>
     </RestaurantCard>

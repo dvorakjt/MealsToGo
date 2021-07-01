@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
 import {Card} from 'react-native-paper';
 
+export const Icon = styled.Image`
+  height: 15px;
+  width: 15px;
+`;
+
 export const Section = styled.View`
   flex-direction: row;
   justify-content: space-between;
