@@ -18,8 +18,7 @@ export const Rating = styled.View`
 `;
 
 export const RestaurantCard = styled(Card)`
-  background-color: ${({theme}) =>
-    theme.colors.bg.primary}; //destructure props to grab theme
+  background-color: ${({theme}) => theme.colors.bg.primary};
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
