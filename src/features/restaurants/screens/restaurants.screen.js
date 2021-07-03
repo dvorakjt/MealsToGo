@@ -7,8 +7,6 @@ import {Spacer} from '../../../components/spacers/spacer.component';
 
 import {RestaurantSearchView, RestaurantList} from './restaurant-screen.styles';
 
-/*StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px;`*/
-
 export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
