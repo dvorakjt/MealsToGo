@@ -6,10 +6,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {theme} from './src/infrastructure/theme';
+import {RestaurantsContextProvider} from './src/services/restaurants/restaurants.context';
 import {RestaurantsScreen} from './src/features/restaurants/screens/restaurants.screen';
 import {SafeArea} from './src/components/utility/safe-area.component';
-
-import {restaurantRequest} from './src/services/restaurants/restaurants.service';
 
 const MapScreen = () => {
   return (
@@ -103,9 +102,11 @@ export default function App() {
         hidden={false}
       />
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <MyTabs />
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <MyTabs />
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
     </>
   );

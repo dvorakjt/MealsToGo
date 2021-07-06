@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Searchbar} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
@@ -7,10 +7,14 @@ import {Spacer} from '../../../components/spacers/spacer.component';
 
 import {RestaurantSearchView, RestaurantList} from './restaurant-screen.styles';
 
+import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
+
 export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
   const onChangeSearch = query => setSearchQuery(query);
+
+  const restaurantsContext = useContext(RestaurantsContext);
+  console.log(restaurantsContext);
 
   return (
     <SafeArea>
@@ -22,7 +26,7 @@ export const RestaurantsScreen = () => {
         />
       </RestaurantSearchView>
       <RestaurantList
-        data={[{name: '1'}, {name: '2'}, {name: '3'}, {name: '4'}, {name: '5'}]}
+        data={restaurantsContext.restaurants}
         renderItem={() => (
           <Spacer position="bottom" size="large">
             <RestaurantInfoCard />
