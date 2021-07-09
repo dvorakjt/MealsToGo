@@ -27,9 +27,9 @@ export const RestaurantsScreen = () => {
       </RestaurantSearchView>
       <RestaurantList
         data={restaurantsContext.restaurants}
-        renderItem={() => (
+        renderItem={({item}) => (
           <Spacer position="bottom" size="large">
-            <RestaurantInfoCard />
+            <RestaurantInfoCard restaurant={item} />
           </Spacer>
         )}
         keyExtractor={item => item.name}
