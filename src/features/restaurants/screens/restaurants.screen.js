@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {Searchbar} from 'react-native-paper';
+import {Searchbar, ActivityIndicator} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
 import {SafeArea} from '../../../components/utility/safe-area.component';
@@ -13,8 +13,7 @@ export const RestaurantsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
-  const restaurantsContext = useContext(RestaurantsContext);
-  console.log(restaurantsContext);
+  const {isLoading, restaurants, error} = useContext(RestaurantsContext);
 
   return (
     <SafeArea>
@@ -25,15 +24,19 @@ export const RestaurantsScreen = () => {
           value={searchQuery}
         />
       </RestaurantSearchView>
-      <RestaurantList
-        data={restaurantsContext.restaurants}
-        renderItem={({item}) => (
-          <Spacer position="bottom" size="large">
-            <RestaurantInfoCard restaurant={item} />
-          </Spacer>
-        )}
-        keyExtractor={item => item.name}
-      />
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <RestaurantList
+          data={restaurants}
+          renderItem={({item}) => (
+            <Spacer position="bottom" size="large">
+              <RestaurantInfoCard restaurant={item} />
+            </Spacer>
+          )}
+          keyExtractor={item => item.name}
+        />
+      )}
     </SafeArea>
   );
 };
