@@ -12,17 +12,12 @@ export const Search = () => {
   const {keyword, search} = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
-  useEffect(() => {
-    search(searchKeyword);
-  }, []);
-
   return (
     <SearchContainer>
       <Searchbar
         placeholder="Search for a location..."
         value={searchKeyword}
         onSubmitEditing={() => {
-          console.log('searching...');
           search(searchKeyword);
         }}
         onChangeText={text => {
@@ -32,6 +27,3 @@ export const Search = () => {
     </SearchContainer>
   );
 };
-
-//onChangeText={}
-//value={}
