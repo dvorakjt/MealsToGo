@@ -1,9 +1,10 @@
 import React, {useState, useContext} from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
-import {Searchbar, ActivityIndicator, Colors} from 'react-native-paper';
+import {ActivityIndicator, Colors} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
+import {Search} from '../components/search.component';
 import {SafeArea} from '../../../components/utility/safe-area.component';
 import {Spacer} from '../../../components/spacers/spacer.component';
 
@@ -29,13 +30,7 @@ export const RestaurantsScreen = () => {
 
   return (
     <SafeArea>
-      <RestaurantSearchView>
-        <Searchbar
-          placeholder="Find a restaurant..."
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
-      </RestaurantSearchView>
+      <Search />
       {isLoading ? (
         <LoadingContainer>
           <Loading animating={true} size={50} color={Colors.red800} />
