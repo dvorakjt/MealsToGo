@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import {ActivityIndicator, Colors} from 'react-native-paper';
 
@@ -11,8 +11,9 @@ import {Spacer} from '../../../components/spacers/spacer.component';
 import {RestaurantSearchView, RestaurantList} from './restaurant-screen.styles';
 
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
+import {Info} from '../components/restaurant-info-card.styles';
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
@@ -40,7 +41,12 @@ export const RestaurantsScreen = () => {
           data={restaurants}
           renderItem={({item}) => (
             <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Restaurant Details', {restaurant: item});
+                }}>
+                <RestaurantInfoCard restaurant={item} />
+              </TouchableOpacity>
             </Spacer>
           )}
           keyExtractor={item => item.name}
