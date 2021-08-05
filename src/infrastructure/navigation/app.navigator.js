@@ -70,17 +70,21 @@ const createScreenOptions = ({route}) => {
   const iconCategory = TAB_ICONS[route.name];
   return {
     tabBarIcon: tabBarIcon(iconCategory),
+    headerShown: false,
+    tabBarActiveTintColor: 'tomato',
+    tabBarInactiveTintColor: 'gray',
+    tabBarStyle: [
+      {
+        display: 'flex',
+      },
+      null,
+    ],
   };
 };
 
 function MyTabs() {
   return (
-    <Tab.Navigator
-      screenOptions={createScreenOptions}
-      tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-      }}>
+    <Tab.Navigator screenOptions={createScreenOptions}>
       <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
       <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
