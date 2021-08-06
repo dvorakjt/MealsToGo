@@ -5,22 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RestaurantsNavigator} from './restaurants.navigator';
 import {SafeArea} from '../../components/utility/safe-area.component';
-
-const MapScreen = () => {
-  return (
-    <SafeArea>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'green',
-        }}>
-        <Text>Map Screen will go here</Text>
-      </View>
-    </SafeArea>
-  );
-};
+import {MapScreen} from '../../features/map/screens/map.screen';
 
 const SettingsScreen = () => {
   return (
