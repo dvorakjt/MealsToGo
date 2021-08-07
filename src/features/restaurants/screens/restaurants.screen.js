@@ -7,10 +7,13 @@ import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
 import {Search} from '../components/search.component';
 import {SafeArea} from '../../../components/utility/safe-area.component';
 import {Spacer} from '../../../components/spacers/spacer.component';
+import {FavoritesBar} from '../../../components/favorites/favorites-bar.component.js';
 
 import {RestaurantSearchView, RestaurantList} from './restaurant-screen.styles';
 
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
+import {FavoritesContext} from '../../../services/favorites/favorites.context';
+
 import {Info} from '../components/restaurant-info-card.styles';
 
 export const RestaurantsScreen = ({navigation}) => {
@@ -18,6 +21,9 @@ export const RestaurantsScreen = ({navigation}) => {
   const onChangeSearch = query => setSearchQuery(query);
 
   const {isLoading, restaurants, error} = useContext(RestaurantsContext);
+
+  const [isToggled, setIsToggled] = useState(false);
+  const {favorites} = useContext(FavoritesContext);
 
   const Loading = styled(ActivityIndicator)`
     margin-left: -25px;
@@ -31,7 +37,13 @@ export const RestaurantsScreen = ({navigation}) => {
 
   return (
     <SafeArea>
-      <Search />
+      <Search
+        isFavoritesToggled={isToggled}
+        onFavoritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavoritesBar favorites={favorites} onNavigate={navigation.navigate} />
+      )}
       {isLoading ? (
         <LoadingContainer>
           <Loading animating={true} size={50} color={Colors.red800} />
