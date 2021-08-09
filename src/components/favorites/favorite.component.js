@@ -24,8 +24,6 @@ export const Favorite = ({restaurant}) => {
   return (
     <FavoriteButton
       onPress={() => {
-        console.log(restaurant);
-        console.log(isFavorite);
         !isFavorite
           ? addToFavorites(restaurant)
           : removeFromFavorites(restaurant);
