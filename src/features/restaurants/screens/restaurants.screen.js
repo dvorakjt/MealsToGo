@@ -9,12 +9,10 @@ import {SafeArea} from '../../../components/utility/safe-area.component';
 import {Spacer} from '../../../components/spacers/spacer.component';
 import {FavoritesBar} from '../../../components/favorites/favorites-bar.component.js';
 
-import {RestaurantSearchView, RestaurantList} from './restaurant-screen.styles';
+import {RestaurantList} from './restaurant-screen.styles';
 
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
 import {FavoritesContext} from '../../../services/favorites/favorites.context';
-
-import {Info} from '../components/restaurant-info-card.styles';
 
 export const RestaurantsScreen = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');

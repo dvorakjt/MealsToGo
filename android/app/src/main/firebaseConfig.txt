@@ -1,6 +1,0 @@
-apiKey: 'AIzaSyBvYjycs8e6cDnudjBaUTAJb2SwhpLEFFY',
-  authDomain: 'meals-to-go-1ae31.firebaseapp.com',
-  projectId: 'meals-to-go-1ae31',
-  storageBucket: 'meals-to-go-1ae31.appspot.com',
-  messagingSenderId: '875035892241',
-  appId: '1:875035892241:web:f8a1fa7d75ae3a043f2fb0',
