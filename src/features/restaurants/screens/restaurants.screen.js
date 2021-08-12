@@ -14,6 +14,8 @@ import {RestaurantList} from './restaurant-screen.styles';
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
 import {FavoritesContext} from '../../../services/favorites/favorites.context';
 
+import {FadeInView} from '../../../components/animations/fade.animation';
+
 export const RestaurantsScreen = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
@@ -55,7 +57,9 @@ export const RestaurantsScreen = ({navigation}) => {
                 onPress={() => {
                   navigation.navigate('Restaurant Details', {restaurant: item});
                 }}>
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </TouchableOpacity>
             </Spacer>
           )}
