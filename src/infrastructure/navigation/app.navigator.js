@@ -41,7 +41,7 @@ const createScreenOptions = ({route}) => {
   return {
     tabBarIcon: tabBarIcon(iconCategory),
     headerShown: false,
-    tabBarActiveTintColor: 'tomato',
+    tabBarActiveTintColor: '#FF5555',
     tabBarInactiveTintColor: 'gray',
     tabBarStyle: [
       {

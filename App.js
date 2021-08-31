@@ -11,9 +11,7 @@ import {AuthenticationContextProvider} from './src/services/authentication/authe
 
 import {Navigation} from './src/infrastructure/navigation';
 
-const firebaseConfig = {
-  //firebase config information goes here
-};
+const firebaseConfig = {};
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -28,7 +26,7 @@ export default function App() {
     <>
       <StatusBar
         animated={true}
-        backgroundColor="tomato"
+        backgroundColor="#FF5555"
         barStyle={'default'}
         showHideTransition={'slide'}
         hidden={false}

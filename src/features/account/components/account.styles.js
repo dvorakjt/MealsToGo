@@ -25,7 +25,7 @@ export const AccountContainer = styled.View`
 `;
 
 export const AuthButton = styled(Button).attrs({
-  color: 'tomato',
+  color: '#FF5555',
   mode: 'contained',
 })`
   padding: ${({theme}) => theme.space[2]};
@@ -33,8 +33,8 @@ export const AuthButton = styled(Button).attrs({
 
 export const AuthTextInput = styled(TextInput).attrs({
   mode: 'outlined',
-  outlineColor: 'tomato',
-  underlineColor: 'tomato',
+  outlineColor: '#FF5555',
+  underlineColor: '#FF5555',
 })`
   width: 300px;
 `;

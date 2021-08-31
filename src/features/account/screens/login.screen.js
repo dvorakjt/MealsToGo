@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 1,
     elevation: 3,
-    backgroundColor: 'tomato',
+    backgroundColor: '#FF5555',
   },
 });
