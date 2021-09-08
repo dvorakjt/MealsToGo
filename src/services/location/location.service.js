@@ -1,12 +1,8 @@
 import camelize from 'camelize';
+import {host} from '../../utils/env';
 
 export const locationRequest = searchTerm => {
-  console.log(
-    `http://10.0.2.2:5001/meals-to-go-1ae31/us-central1/geocode?city=${searchTerm}`,
-  );
-  return fetch(
-    `http://10.0.2.2:5001/meals-to-go-1ae31/us-central1/geocode?city=${searchTerm}`,
-  )
+  return fetch(`${host}/geocode?city=${searchTerm}`)
     .then(res => {
       console.log(res);
       return res.json();
