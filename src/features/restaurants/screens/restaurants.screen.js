@@ -8,9 +8,11 @@ import {Search} from '../components/search.component';
 import {SafeArea} from '../../../components/utility/safe-area.component';
 import {Spacer} from '../../../components/spacers/spacer.component';
 import {FavoritesBar} from '../../../components/favorites/favorites-bar.component.js';
+import {Text} from '../../../components/typography/text.component';
 
 import {RestaurantList} from './restaurant-screen.styles';
 
+import {LocationContext} from '../../../services/location/location.context';
 import {RestaurantsContext} from '../../../services/restaurants/restaurants.context';
 import {FavoritesContext} from '../../../services/favorites/favorites.context';
 
@@ -20,7 +22,9 @@ export const RestaurantsScreen = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
+  const {error: locationError} = useContext(LocationContext);
   const {isLoading, restaurants, error} = useContext(RestaurantsContext);
+  const hasError = !!locationError || !!error;
 
   const [isToggled, setIsToggled] = useState(false);
   const {favorites} = useContext(FavoritesContext);
@@ -48,6 +52,10 @@ export const RestaurantsScreen = ({navigation}) => {
         <LoadingContainer>
           <Loading animating={true} size={50} color={Colors.red800} />
         </LoadingContainer>
+      ) : hasError ? (
+        <Spacer position="left" size="large">
+          <Text variant="error">There was a problem loading the data.</Text>
+        </Spacer>
       ) : (
         <RestaurantList
           data={restaurants}
