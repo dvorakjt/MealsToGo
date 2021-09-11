@@ -11,7 +11,9 @@ import {AuthenticationContextProvider} from './src/services/authentication/authe
 
 import {Navigation} from './src/infrastructure/navigation';
 
-const firebaseConfig = {};
+const firebaseConfig = {
+  //firebase config object
+};
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

@@ -3,10 +3,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {RestaurantsNavigator} from './restaurants.navigator';
 import {MapScreen} from '../../features/map/screens/map.screen';
+import {CheckoutNavigator} from './checkout.navigator';
 import {SettingsNavigator} from './settings.navigator';
 import {FavoritesContextProvider} from '../../services/favorites/favorites.context';
 import {LocationContextProvider} from '../../services/location/location.context';
 import {RestaurantsContextProvider} from '../../services/restaurants/restaurants.context';
+import {CartContextProvider} from '../../services/cart/cart.context';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +16,10 @@ const TAB_ICONS = {
   Restaurants: {
     focused: 'restaurant',
     unfocused: 'restaurant-outline',
+  },
+  Checkout: {
+    focused: 'cart',
+    unfocused: 'cart-outline',
   },
   Map: {
     focused: 'map',
@@ -56,6 +62,7 @@ function MyTabs() {
   return (
     <Tab.Navigator screenOptions={createScreenOptions}>
       <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+      <Tab.Screen name="Checkout" component={CheckoutNavigator} />
       <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Settings" component={SettingsNavigator} />
     </Tab.Navigator>
@@ -68,7 +75,9 @@ export const AppNavigator = () => {
       <FavoritesContextProvider>
         <LocationContextProvider>
           <RestaurantsContextProvider>
-            <MyTabs />
+            <CartContextProvider>
+              <MyTabs />
+            </CartContextProvider>
           </RestaurantsContextProvider>
         </LocationContextProvider>
       </FavoritesContextProvider>

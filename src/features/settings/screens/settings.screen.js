@@ -7,6 +7,7 @@ import {AuthenticationContext} from '../../../services/authentication/authentica
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useFocusEffect} from '@react-navigation/core';
+import {colors} from '../../../infrastructure/theme/colors';
 
 const SettingsItem = styled(List.Item)`
   padding: ${({theme}) => theme.space[2]};
@@ -81,12 +82,36 @@ export const SettingsScreen = ({navigation}) => {
         <SettingsItem
           title="Favorites"
           description="View your favorites"
-          left={props => <List.Icon {...props} color="black" icon="heart" />}
+          left={props => (
+            <List.Icon {...props} color={colors.ui.error} icon="heart" />
+          )}
           onPress={() => navigation.navigate('Favorites')}
         />
         <SettingsItem
+          title="Payment Information"
+          description="Edit your payment information"
+          left={props => (
+            <List.Icon
+              {...props}
+              color={colors.ui.secondary}
+              icon="credit-card"
+            />
+          )}
+          onPress={() => null}
+        />
+        <SettingsItem
+          title="Past Orders"
+          description="View your past orders"
+          left={props => (
+            <List.Icon {...props} color={colors.ui.secondary} icon="history" />
+          )}
+          onPress={() => null}
+        />
+        <SettingsItem
           title="Logout"
-          left={props => <List.Icon {...props} color="black" icon="door" />}
+          left={props => (
+            <List.Icon {...props} color={colors.ui.secondary} icon="door" />
+          )}
           onPress={onLogout}
         />
       </List.Section>

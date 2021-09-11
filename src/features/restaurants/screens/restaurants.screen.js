@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import {TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
-import {ActivityIndicator, Colors} from 'react-native-paper';
+import {ActivityIndicator, Colors, Divider} from 'react-native-paper';
 
 import {RestaurantInfoCard} from '../components/restaurant-info-card.component';
 import {Search} from '../components/search.component';
@@ -46,7 +46,13 @@ export const RestaurantsScreen = ({navigation}) => {
         onFavoritesToggle={() => setIsToggled(!isToggled)}
       />
       {isToggled && (
-        <FavoritesBar favorites={favorites} onNavigate={navigation.navigate} />
+        <>
+          <FavoritesBar
+            favorites={favorites}
+            onNavigate={navigation.navigate}
+          />
+          <Divider />
+        </>
       )}
       {isLoading ? (
         <LoadingContainer>
